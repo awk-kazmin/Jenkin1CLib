@@ -16,8 +16,18 @@ public class ConfigurationTest {
     public void tearDown() throws Exception {
     }
 
+    /**
+     * Загрузка конфигурации 1С
+     */
     @Test
     public void load() {
+        def conf = new Configuration();
+        def path = "/opt/1C/v8.3/x86_64/1cv8"
+        def pathToConf = "/opt/1C/v8.3/x86_64/1cv8"
+        conf.load([
+                pathTo1C: path,
+                pathToConf: pathToConf
+        ])
     }
 
     @Test

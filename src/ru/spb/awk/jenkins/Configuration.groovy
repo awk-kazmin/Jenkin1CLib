@@ -2,29 +2,38 @@ package ru.spb.awk.jenkins
 
 class Configuration implements Serializable {
 
+
+    public static final String DESIGNER = "DESIGNER"
+
     /**
      * Загрузка конфигурации 1С
+     * @param conf:
+     *      pathTo1C   - Путь до 1cv8[.exe]
+     *      pathToConf - Путь до конфигурационного файла
      * @return
      */
-    def boolean load(Map conf) {
-        def app = [conf.pathTo1C, "DESIGNER"]
-        app << '"/LoadCfg"' << "\"${conf.pathToConf}\""
-        app.execute()
+    static boolean load(Map conf) {
+        [
+            conf.pathTo1C,
+            DESIGNER,
+            '"/LoadCfg"',
+            "\"${conf.pathToConf}\""
+        ].execute().exitValue() == 0
     }
 
-    def boolean save() {
-
-    }
-
-    def boolean merge() {
-
-    }
-
-    def boolean imp() {
+    static boolean save() {
 
     }
 
-    def boolean exp() {
+    static boolean merge() {
+
+    }
+
+    static boolean imp() {
+
+    }
+
+    static boolean exp() {
 
     }
 }

@@ -24,7 +24,7 @@ class ConfigurationTest {
         def conf = new Configuration();
         def path = "/opt/1C/v8.3/x86_64/1cv8"
         def pathToConf = "/opt/1C/v8.3/x86_64/1cv8"
-        conf.load([
+        assert  conf.load([
                 pathTo1C: path,
                 pathToConf: pathToConf
         ])
@@ -32,6 +32,13 @@ class ConfigurationTest {
 
     @Test
     void save() {
+        def conf = new Configuration();
+        def path = "/opt/1C/v8.3/x86_64/1cv8"
+        def pathToConf = "/opt/1C/v8.3/x86_64/1cv8"
+        assert  conf.save([
+                pathTo1C: path,
+                pathToConf: pathToConf
+        ])
     }
 
     @Test

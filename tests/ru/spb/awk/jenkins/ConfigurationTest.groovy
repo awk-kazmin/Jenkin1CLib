@@ -6,21 +6,21 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class ConfigurationTest {
+class ConfigurationTest {
 
     @Before
-    public void setUp() throws Exception {
+    void setUp() throws Exception {
     }
 
     @After
-    public void tearDown() throws Exception {
+    void tearDown() throws Exception {
     }
 
     /**
      * Загрузка конфигурации 1С
      */
     @Test
-    public void load() {
+    void load() {
         def conf = new Configuration();
         def path = "/opt/1C/v8.3/x86_64/1cv8"
         def pathToConf = "/opt/1C/v8.3/x86_64/1cv8"
@@ -31,18 +31,18 @@ public class ConfigurationTest {
     }
 
     @Test
-    public void save() {
+    void save() {
     }
 
     @Test
-    public void merge() {
+    void merge() {
     }
 
     @Test
-    public void imp() {
+    void imp() {
     }
 
     @Test
-    public void exp() {
+    void exp() {
     }
 }

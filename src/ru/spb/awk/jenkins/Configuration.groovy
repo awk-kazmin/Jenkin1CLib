@@ -8,14 +8,17 @@ class Configuration implements Serializable {
     /**
      * Загрузка конфигурации 1С
      * @param conf:
-     *      pathTo1C   - Путь до 1cv8[.exe]
-     *      pathToConf - Путь до конфигурационного файла
+     *      pathTo1C         - Путь до 1cv8[.exe]
+     *      pathToConf       - Путь до конфигурационного файла
+     *      connectionString - Строка подключения
      * @return
      */
     static boolean load(Map conf) {
         [
             conf.pathTo1C,
             DESIGNER,
+            "/IBConnectionString",
+            "\"conf.connectionString\"",
             '"/LoadCfg"',
             "\"${conf.pathToConf}\""
         ].execute().exitValue() == 0
@@ -24,16 +27,19 @@ class Configuration implements Serializable {
     /**
      * Выгрузка конфигурации 1С
      * @param conf:
-     *      pathTo1C   - Путь до 1cv8[.exe]
-     *      pathToConf - Путь до конфигурационного файла
+     *      pathTo1C         - Путь до 1cv8[.exe]
+     *      pathToConf       - Путь до конфигурационного файла
+     *      connectionString - Строка подключения
      * @return
      */
     static boolean save(Map conf) {
         [
-                conf.pathTo1C,
-                DESIGNER,
-                '"/DumpCfg"',
-                "\"${conf.pathToConf}\""
+            conf.pathTo1C,
+            DESIGNER,
+            "/IBConnectionString",
+            "\"conf.connectionString\"",
+            '"/DumpCfg"',
+            "\"${conf.pathToConf}\""
         ].execute().exitValue() == 0
     }
 
